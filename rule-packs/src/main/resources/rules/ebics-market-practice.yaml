@@ -1,0 +1,9 @@
+version: 1
+name: ebics-market-practice
+rules:
+  - id: pacs008-amount-positive
+    description: Interbank settlement amount must be greater than zero.
+    condition: "${payload.IntrBkSttlmAmt} > 0"
+  - id: pacs008-currency-eur
+    description: Only EUR transactions are supported in pilot.
+    condition: "${payload.IntrBkSttlmAmt.@Ccy} == 'EUR'"

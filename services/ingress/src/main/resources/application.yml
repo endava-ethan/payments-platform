@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: ingress-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/payments
+      auto-index-creation: true
+  kafka:
+    bootstrap-servers: localhost:29092
+    properties:
+      security.protocol: SSL
+      ssl.truststore.location: 
+      ssl.keystore.location: 
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+payments:
+  topics:
+    inbound: iso20022.inbound.pacs.008.v10
+    validated: cdm.validated.payment.v1
+  validation:
+    schema-version: 10

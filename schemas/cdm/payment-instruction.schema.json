@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/cdm/payment-instruction.json",
+  "title": "PaymentInstruction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "instructionId",
+    "debtorIban",
+    "creditorIban",
+    "currency",
+    "amount",
+    "requestedExecutionDate"
+  ],
+  "properties": {
+    "instructionId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9\\-]{1,35}$"
+    },
+    "debtorIban": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]{15,34}$"
+    },
+    "creditorIban": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]{15,34}$"
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "amount": {
+      "type": "string",
+      "pattern": "^\\d{1,13}(?:\\.\\d{1,5})?$"
+    },
+    "requestedExecutionDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "purposeCode": {
+      "type": "string"
+    }
+  }
+}

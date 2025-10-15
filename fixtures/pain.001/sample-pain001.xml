@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.09">
+    <CstmrCdtTrfInitn>
+        <GrpHdr>
+            <MsgId>INIT123</MsgId>
+            <CreDtTm>2024-05-01T09:00:00Z</CreDtTm>
+            <NbOfTxs>1</NbOfTxs>
+        </GrpHdr>
+        <PmtInf>
+            <PmtInfId>PMTINF1</PmtInfId>
+            <PmtMtd>TRF</PmtMtd>
+            <ReqdExctnDt>2024-05-02</ReqdExctnDt>
+            <DbtrAcct>
+                <Id>
+                    <IBAN>DE12500105170648489890</IBAN>
+                </Id>
+            </DbtrAcct>
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>INIT123</InstrId>
+                    <EndToEndId>E2E-999</EndToEndId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="EUR">50.00</InstdAmt>
+                </Amt>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>FR7630006000011234567890189</IBAN>
+                    </Id>
+                </CdtrAcct>
+            </CdtTrfTxInf>
+        </PmtInf>
+    </CstmrCdtTrfInitn>
+</Document>

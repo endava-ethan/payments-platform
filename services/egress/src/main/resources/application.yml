@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: egress-service
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: egress
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: com.example.payments.cdm.PaymentStatus
+    properties:
+      security.protocol: SSL
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+payments:
+  topics:
+    status: iso20022.outbound.pacs.002.v9
