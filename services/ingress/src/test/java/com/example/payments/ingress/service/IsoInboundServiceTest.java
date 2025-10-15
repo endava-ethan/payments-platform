@@ -37,7 +37,7 @@ class IsoInboundServiceTest {
     @BeforeEach
     void setUp() throws Exception {
         parser = new IsoXmlParser();
-        extractor = new IsoPacs008Extractor();
+        extractor = new IsoPacs008Extractor("EUR");
         schemaPipeline = new StubValidationPipeline<>();
         semanticPipeline = new StubValidationPipeline<>();
         mapper = new StubIsoPaymentMapper();
