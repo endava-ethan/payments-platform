@@ -1,0 +1,6 @@
+com\example\payments\cdm\DefaultIsoPaymentMapper.class
+com\example\payments\cdm\PaymentStatus.class
+com\example\payments\cdm\Envelope.class
+com\example\payments\cdm\IsoPaymentMapper.class
+com\example\payments\cdm\PaymentInstruction.class
+com\example\payments\cdm\IsoPacs008Payment.class

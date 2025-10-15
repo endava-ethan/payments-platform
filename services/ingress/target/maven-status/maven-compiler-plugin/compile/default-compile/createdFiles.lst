@@ -1,0 +1,14 @@
+com\example\payments\ingress\config\CdmMapperConfig.class
+com\example\payments\ingress\persistence\GridFsStorage.class
+com\example\payments\ingress\SecurityConfig.class
+com\example\payments\ingress\persistence\InboundMessageDocument.class
+com\example\payments\ingress\validation\SemanticPaymentValidator.class
+com\example\payments\ingress\validation\DocumentSchemaValidator.class
+com\example\payments\ingress\xml\IsoPacs008Extractor.class
+com\example\payments\ingress\api\IsoInboundController.class
+com\example\payments\ingress\persistence\InboundMessageRepository.class
+com\example\payments\ingress\xml\IsoXmlParser.class
+com\example\payments\ingress\config\IngressValidationConfig.class
+com\example\payments\ingress\messaging\CdmPublisher.class
+com\example\payments\ingress\IngressApplication.class
+com\example\payments\ingress\service\IsoInboundService.class
