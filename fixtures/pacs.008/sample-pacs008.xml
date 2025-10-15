@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIToFICstmrCdtTrf xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10">
+    <GrpHdr>
+        <MsgId>ABC123</MsgId>
+        <CreDtTm>2024-05-01T10:15:30Z</CreDtTm>
+    </GrpHdr>
+    <CdtTrfTxInf>
+        <PmtId>
+            <InstrId>ABC123</InstrId>
+            <EndToEndId>E2E-789</EndToEndId>
+        </PmtId>
+        <IntrBkSttlmAmt Ccy="EUR">199.99</IntrBkSttlmAmt>
+        <DbtrAcct>
+            <IBAN>DE89370400440532013000</IBAN>
+        </DbtrAcct>
+        <CdtrAcct>
+            <IBAN>FR7630006000011234567890189</IBAN>
+        </CdtrAcct>
+    </CdtTrfTxInf>
+</FIToFICstmrCdtTrf>

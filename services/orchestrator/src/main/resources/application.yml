@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: orchestrator-service
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: orchestrator
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: com.example.payments.cdm.PaymentInstruction
+    properties:
+      security.protocol: SSL
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+payments:
+  topics:
+    validated: cdm.validated.payment.v1
+    status: iso20022.outbound.pacs.002.v9

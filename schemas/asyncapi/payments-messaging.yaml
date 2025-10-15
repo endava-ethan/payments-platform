@@ -1,0 +1,65 @@
+asyncapi: 3.0.0
+info:
+  title: Payments Platform Messaging
+  version: 0.1.0
+  description: |
+    Versioned Kafka topics for ISO 20022 payment flows. Topics are immutable; upgrades create new versions.
+servers:
+  kafkaPrimary:
+    host: localhost:29092
+    protocol: kafka-secure
+    description: Local development broker with mTLS disabled.
+channels:
+  iso20022.inbound.pacs.008.v10:
+    address: iso20022.inbound.pacs.008.v10
+    messages:
+      pacs008:
+        $ref: '#/components/messages/Pacs008Inbound'
+  cdm.validated.payment.v1:
+    address: cdm.validated.payment.v1
+    messages:
+      payment:
+        $ref: '#/components/messages/CdmPayment'
+  iso20022.outbound.pacs.002.v9:
+    address: iso20022.outbound.pacs.002.v9
+    messages:
+      status:
+        $ref: '#/components/messages/Pacs002Outbound'
+components:
+  messages:
+    Pacs008Inbound:
+      name: Pacs008Inbound
+      title: ISO 20022 pacs.008 Payment
+      contentType: application/xml
+      payload:
+        type: string
+        description: Strict ISO 20022 pacs.008.001.10 XML payload.
+      headers:
+        type: object
+        required: [messageName, version, schemaUri, correlationId, endToEndId, sha256]
+        properties:
+          messageName:
+            const: pacs.008
+          version:
+            const: 10
+          schemaUri:
+            type: string
+            format: uri
+          correlationId:
+            type: string
+          endToEndId:
+            type: string
+          sha256:
+            type: string
+            pattern: '^[A-Fa-f0-9]{64}$'
+    CdmPayment:
+      name: CdmPayment
+      contentType: application/json
+      payload:
+        $ref: 'https://example.com/schemas/cdm/payment-instruction.json'
+    Pacs002Outbound:
+      name: Pacs002Outbound
+      contentType: application/xml
+      payload:
+        type: string
+        description: ISO 20022 pacs.002 XML acknowledging orchestration results.

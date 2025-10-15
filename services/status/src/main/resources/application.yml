@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: status-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/payments
+      auto-index-creation: true
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
