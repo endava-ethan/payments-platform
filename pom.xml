@@ -29,7 +29,6 @@
     <properties>
         <java.version>21</java.version>
         <spring-boot-dependencies.version>3.2.5</spring-boot-dependencies.version>
-        <mapstruct.version>1.5.5.Final</mapstruct.version>
         <testcontainers.version>1.19.7</testcontainers.version>
         <cyclonedx.version>2.7.10</cyclonedx.version>
         <dependency.check.version>9.0.7</dependency.check.version>
@@ -76,13 +75,6 @@
                         <compilerArgs>
                             <arg>-parameters</arg>
                         </compilerArgs>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.mapstruct</groupId>
-                                <artifactId>mapstruct-processor</artifactId>
-                                <version>${mapstruct.version}</version>
-                            </path>
-                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
                 <plugin>

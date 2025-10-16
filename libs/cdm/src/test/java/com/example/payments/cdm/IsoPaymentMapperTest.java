@@ -1,8 +1,6 @@
 package com.example.payments.cdm;
 
 import org.junit.jupiter.api.Test;
-import org.mapstruct.factory.Mappers;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -10,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class IsoPaymentMapperTest {
 
-    private final IsoPaymentMapper mapper = Mappers.getMapper(IsoPaymentMapper.class);
+    private final IsoPaymentMapper mapper = new DefaultIsoPaymentMapper();
 
     @Test
     void shouldMapIsoPacs008ToInstructionDeterministically() {

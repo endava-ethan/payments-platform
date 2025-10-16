@@ -1,0 +1,5 @@
+com\example\payments\status\SecurityConfig.class
+com\example\payments\status\persistence\PaymentStatusDocument.class
+com\example\payments\status\api\StatusController.class
+com\example\payments\status\persistence\PaymentStatusRepository.class
+com\example\payments\status\StatusApplication.class

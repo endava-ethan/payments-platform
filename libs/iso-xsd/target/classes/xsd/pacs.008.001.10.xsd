@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10"
+           xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10"
+           elementFormDefault="qualified">
+    <xs:element name="FIToFICstmrCdtTrf">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="GrpHdr" type="GroupHeader"/>
+                <xs:element name="CdtTrfTxInf" type="CreditTransferTransactionInformation" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="GroupHeader">
+        <xs:sequence>
+            <xs:element name="MsgId" type="xs:string"/>
+            <xs:element name="CreDtTm" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreditTransferTransactionInformation">
+        <xs:sequence>
+            <xs:element name="PmtId" type="PaymentIdentification"/>
+            <xs:element name="IntrBkSttlmAmt" type="xs:decimal"/>
+            <xs:element name="DbtrAcct" type="AccountIdentification"/>
+            <xs:element name="CdtrAcct" type="AccountIdentification"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PaymentIdentification">
+        <xs:sequence>
+            <xs:element name="InstrId" type="xs:string"/>
+            <xs:element name="EndToEndId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AccountIdentification">
+        <xs:sequence>
+            <xs:element name="IBAN" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -7,7 +7,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.KafkaOperations;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -15,10 +15,10 @@ import java.time.Instant;
 @Component
 public class PaymentOrchestrator {
 
-    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final KafkaOperations<String, Object> kafkaTemplate;
     private final String statusTopic;
 
-    public PaymentOrchestrator(KafkaTemplate<String, Object> kafkaTemplate,
+    public PaymentOrchestrator(KafkaOperations<String, Object> kafkaTemplate,
                                @Value("${payments.topics.status}") String statusTopic) {
         this.kafkaTemplate = kafkaTemplate;
         this.statusTopic = statusTopic;
