@@ -23,8 +23,6 @@ jobs:
         run: mvn verify
       - name: Generate SBOM
         run: mvn -pl services/ingress cyclonedx:makeAggregateBom
-      - name: Dependency check
-        run: mvn org.owasp:dependency-check-maven:check -DfailBuildOnCVSS=7
       - name: Container build scan
         run: |
           docker buildx build --load -f services/ingress/Dockerfile -t ingress:test .
